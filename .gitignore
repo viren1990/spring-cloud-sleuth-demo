@@ -25,3 +25,11 @@ hs_err_pid*
 /**/.settings/
 /**/target/
 
+### Eclipse Patch ###
+# Eclipse Core
+.project
+
+# JDT-specific (Eclipse Java Development Tools)
+.classpath
+
+
