@@ -32,10 +32,8 @@ public class TestResource {
 	public void sample() {
 		final MultiValueMap<String, String> headers = new LinkedMultiValueMap<String, String>(10);
 		headers.put("x-b3-traceid", Arrays.asList("b756f1edf56e041a"));
-		headers.put("x-b3-spanid", Arrays.asList("4bc8d77a21d0e028"));
-		headers.put("x-b3-parentspanid", Arrays.asList("4bc8d77a21d0e028"));
-		headers.put("x-b3-sampled", Arrays.asList("0"));
-
+		headers.put("x-b3-spanid", Arrays.asList("b756f1edf56e041a"));
+		
 		final HttpHeaders httpHeaders = new HttpHeaders(headers);
 
 		final HttpEntity<String> entity = new HttpEntity<String>(httpHeaders);
