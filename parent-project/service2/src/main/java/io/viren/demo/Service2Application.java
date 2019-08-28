@@ -28,16 +28,33 @@ public class Service2Application {
 	public static void main(String[] args) {
 		SpringApplication.run(Service2Application.class, args);
 	}
-
+	
 	@GetMapping("/")
+	public String sayHello() {
+		return "Hello";
+	}
+
+	@GetMapping("/resource2")
 	@NewSpan
 	public void sampleHello(@RequestHeader MultiValueMap<String, String> headers) {
-
+		log.info("~~~~~~~~~~~~~~~~~~~~ Headers listing is as follows ~~~~~~~~~~~~~~~~~~~~~~ ");
+		
 		headers.forEach((key, values) -> log.info("Header key is {} and value is {}", key,
 				values.stream().collect(Collectors.joining(","))));
 		log.info("###########################################################################");
 		String response = restTemplate.getForObject("http://localhost:8091/", String.class);
-
+		log.info("~~~~~~~~~~~ Response is {} ~~~~~~~~~~~~~~~~",response);
+	}
+	
+	@GetMapping("/resource3")
+	@NewSpan
+	public void sampleHello1(@RequestHeader MultiValueMap<String, String> headers) {
+		log.info("~~~~~~~~~~~~~~~~~~~~ in another method ~~~~~~~~~~~~~~~~~~~~~~ ");
+		
+		headers.forEach((key, values) -> log.info("Header key is {} and value is {}", key,
+				values.stream().collect(Collectors.joining(","))));
+		log.info("###########################################################################");
+		String response = restTemplate.getForObject("http://localhost:8091/", String.class);
 		log.info("~~~~~~~~~~~ Response is {} ~~~~~~~~~~~~~~~~",response);
 	}
 
