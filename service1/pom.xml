@@ -22,7 +22,11 @@
 	</properties>
 
 	<dependencies>
-
+		<dependency>
+			<groupId>com.netflix.hystrix</groupId>
+			<artifactId>hystrix-javanica</artifactId>
+			<version>1.5.18</version>
+		</dependency>
 	</dependencies>
 
 	<build>
