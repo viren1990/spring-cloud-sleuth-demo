@@ -42,14 +42,14 @@ public class Service1AppConfig {
 
     @Bean
     public PoolingHttpClientConnectionManager poolingHttpClientConnectionManager() {
-        PoolingHttpClientConnectionManager result = new PoolingHttpClientConnectionManager();
+        final PoolingHttpClientConnectionManager result = new PoolingHttpClientConnectionManager();
         result.setMaxTotal(httpClientConnectionPoolMaxTotal);
         return result;
     }
 
     @Bean
     public RequestConfig requestConfig() {
-        RequestConfig result = RequestConfig.custom()
+        final RequestConfig result = RequestConfig.custom()
                 .setConnectionRequestTimeout(readTimeOut)
                 .setConnectTimeout(connectTimeOut)
                 .setSocketTimeout(socketTimeOut)
@@ -59,7 +59,7 @@ public class Service1AppConfig {
 
     @Bean
     public CloseableHttpClient httpClient(PoolingHttpClientConnectionManager poolingHttpClientConnectionManager, RequestConfig requestConfig) {
-        CloseableHttpClient result = HttpClientBuilder
+        final CloseableHttpClient result = HttpClientBuilder
                 .create()
                 .setConnectionManager(poolingHttpClientConnectionManager)
                 .setDefaultRequestConfig(requestConfig)

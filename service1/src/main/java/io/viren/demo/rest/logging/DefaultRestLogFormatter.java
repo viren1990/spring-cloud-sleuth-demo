@@ -14,7 +14,7 @@ import static java.nio.charset.StandardCharsets.ISO_8859_1;
 import static org.springframework.util.StreamUtils.copyToByteArray;
 
 @Component
-public class DefaultRestLogFormatter implements  RestLogFormatter{
+public class DefaultRestLogFormatter implements RestLogFormatter{
 
     private static final Charset DEFAULT_CHARSET = ISO_8859_1;
 

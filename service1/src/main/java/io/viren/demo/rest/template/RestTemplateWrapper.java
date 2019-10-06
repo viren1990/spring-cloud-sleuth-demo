@@ -55,8 +55,9 @@ public abstract class RestTemplateWrapper {
         return readValue(response, javaType);
     }
 
-    public void delete(String url, Object... uriVariables) {
+    public boolean delete(String url, Object... uriVariables) {
             restTemplate.delete(url, uriVariables);
+            return true;
     }
 
     private <T> T readValue(ResponseEntity<String> response, JavaType javaType) {
