@@ -6,7 +6,9 @@ import java.util.Objects;
 
 public class PcfClientException extends  RuntimeException {
 
-    public PcfClientException(final String message ){
+	private static final long serialVersionUID = 5816439467963083285L;
+
+	public PcfClientException(final String message ){
         super( message);
     }
 
